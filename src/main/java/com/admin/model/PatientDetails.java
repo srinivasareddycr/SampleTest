@@ -1,6 +1,8 @@
 package com.admin.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
@@ -28,7 +30,7 @@ resultSetMapping = "Mapping.PatientUpdateDto")
 
 
 @Entity
-public class PatientDetails {
+public class PatientDetails implements Serializable{
 
 	
 	@Id
@@ -107,6 +109,21 @@ public class PatientDetails {
 	public PatientDetails( String address, String dob, String drugId,String drugName,String emailId,  
 			String patientName, String phoneNumber) {
 		super();
+		//this.id= id;
+		this.address = address;
+		this.dob = dob;
+		this.drugId = drugId;
+		this.drugName = drugName;
+		this.emailId = emailId;
+		this.patientName = patientName;
+		this.phoneNumber = phoneNumber;
+
+		
+	}
+	public PatientDetails( Integer id,String address, String dob, String drugId,String drugName,String emailId,  
+			String patientName, String phoneNumber) {
+		super();
+		this.id= id;
 		this.address = address;
 		this.dob = dob;
 		this.drugId = drugId;
